@@ -1,7 +1,7 @@
 # Odyssey
 Repositorio de IV
 
-El objetivo de mi proyecto sera que los usuarios dispongan de una plataforma donde subir y encontrar productos especificos que esten buscando y sean complicados de conseguir.Estos usuarios podran
-abrir su propia oferta si disponen de algun producto que quieran vender o simplemente buscar a ver si alguien esta buscando algun producto que el tenga y en dicho caso aceptar la oferta.
-Algun ejemplo de tipo de producto del que dispondria la plataforma seria por ejemplo objetos(cartas, figuras..) de algun juego de rol fisico donde usuarios que participen en ese juego puedan querer
-algun producto en especifico o quieran intercambiar cartas etc...
+La idea de mi proyecto se basa en una aplicación que ayude al usuario a escoger que película ver, el usuario podrá facilitar algunos datos como categorías,actor,dar alguna película en concreto, con todo
+esto la aplicación usará filtros para determinar que películas extraer de la biblioteca.
+También mostrará algunas recomendaciones extra sobre películas que le pueden gustar con algunos de los parámetros introducidos.
+La aplicación puede contar con algunos extras más como ademas de recomendar alguna de las películas, decirle al usuario en que plataforma puede visualizar esa película( Netflix,HBO,Rakuten TV,etc..)
