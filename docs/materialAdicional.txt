@@ -1,0 +1,1 @@
+Este subdirectorio contiene informacion adicional sobre el proyecto.
