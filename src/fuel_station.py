@@ -29,4 +29,26 @@ class FuelStation:
         self.name = name                # Nombre de la gasolinera
         self.location = location        # Localización de la gasolinera
 
-        # TODO estructurar los precios y verificados
+        # Diccionario cuya clave es el tipo de gasolina y el valor es el precio de la gasolina
+        # El argumento fuel_prices es un diccionario que almacena los precios
+        self.fuel_prices = {
+            FuelType.DIESEL: fuel_prices[FuelType.DIESEL],
+            FuelType.DIESEL_PLUS: fuel_prices[FuelType.DIESEL_PLUS],
+            FuelType.GASOLINA: fuel_prices[FuelType.GASOLINA]
+        }
+
+        # Diccionario cuya clave es el tipo de gasolina y el valor es True si está verificado
+        # o False en caso de que no haya sido verificado
+        self.verified_prices = {
+            FuelType.DIESEL: False,
+            FuelType.DIESEL_PLUS: False,
+            FuelType.GASOLINA: False
+        }
+
+    # Método que propone un precio para un tipo de gasolina
+    def set_fuel_price(self, fuel_type, price):
+        self.fuel_prices[fuel_type] = price
+
+    # Método que verifica el precio de un tipo de gasolina
+    def verify_fuel_price(self, fuel_type):
+        self.verified_prices[fuel_type] = True
