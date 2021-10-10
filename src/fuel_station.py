@@ -18,3 +18,15 @@ class FuelType(Enum):
     DIESEL = "diesel"
     DIESEL_PLUS = "diesel_plus"
     GASOLINA = "gasolina"
+
+# ────────────────────────────────────────────────────────────────────────────────
+
+# Clase que modela una gasolinera
+class FuelStation:
+
+    def __init__(self, ID, name, location, fuel_prices):
+        self.ID = ID                    # Identificador único
+        self.name = name                # Nombre de la gasolinera
+        self.location = location        # Localización de la gasolinera
+
+        # TODO estructurar los precios y verificados
