@@ -52,3 +52,13 @@ class FuelStation:
     # Método que verifica el precio de un tipo de gasolina
     def verify_fuel_price(self, fuel_type):
         self.verified_prices[fuel_type] = True
+
+    # Método de clase que busca en la BD la gasolinera dado su identificador
+    # y construye y devuelve un objeto de la clase FuelStation con los datos
+    # obtenidos
+    @classmethod
+    def look_for_fuel_station_by_ID(cls, ID):
+        # Buscar en la BD y construir el objeto fuel_station cuyo id es ID
+        pass
+
+# ────────────────────────────────────────────────────────────────────────────────
