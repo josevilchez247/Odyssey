@@ -1,0 +1,2 @@
+# Justificación del lenguaje
+Se ha utilizado el lenguaje **Python** para estas primeras fases porque el proyecto trata de una aplicación en la nube y es un lenguaje compatible con muchos framework web como *Flask* o *Django*.
