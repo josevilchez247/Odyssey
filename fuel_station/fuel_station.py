@@ -49,6 +49,7 @@ class FuelStation:
     # Método que propone un precio para un tipo de gasolina
     def set_fuel_price(self, fuel_type, price):
         self.fuel_prices[fuel_type] = price
+        self.verified_prices[fuel_type] = False
 
     # Método que verifica el precio de un tipo de gasolina
     def verify_fuel_price(self, fuel_type):
