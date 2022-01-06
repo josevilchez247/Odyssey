@@ -18,5 +18,7 @@ def test(f):
 @task
 def check(f):
     #Comprobacion de la sintaxis
-
+    
+    print("Comprobando errores de sintaxis ... ")
+    
     run("pylint --errors-only fuel_station")
