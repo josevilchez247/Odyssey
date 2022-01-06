@@ -10,7 +10,7 @@ Esta aplicación va a calcular la mejor ruta desde el origen y el destino pero t
 esta ruta no será la ruta más rápida hasta el objetivo si no que calculará la mejor ruta teniendo en cuenta el precio de la gasolina de las gasolineras más cercanas en el momento que el coche tenga que
 repostar.
 
-##Instalación
+## Instalación
 
 Para poder usar este proyecto debemos descargar sus ficheros de este repositiorio previamente.
 
