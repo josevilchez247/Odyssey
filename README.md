@@ -38,4 +38,8 @@ Para lanzar los test de comprobación del programa tenemos la siguiente orden
 invoke test
 ```
 
+## Documentación Adicional 
+
+-> Justificación del uso de invoke [documento]https://github.com/josevilchez247/Odyssey/blob/HidraLerna/docs/gestorTareas.md
+
 
