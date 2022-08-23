@@ -14,32 +14,47 @@ repostar.
 
 Para poder usar este proyecto debemos descargar sus ficheros de este repositiorio previamente.
 
-A continuación debemos abrir una terminal y hacer una instalación de Invoke
+A continuación debemos instalar el gestor de dependencias que vamos a utilizar en este caso Poetry, seguiremmos los pasos de instalación que se indican en la [documentación](https://python-poetry.org/docs/)
 
 ```shell
-pip install invoke
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
 
-Una vez tenemos invoke instalado lo usaremos para instalar las dependencias de nuestro proyecto para lo que usaremos en la terminal la siguiente orden
+Para comprobar si la instalación se ha realizado de forma exitosa podemos hacer
 
 ```shell
-invoke installdeps
+poetry --version
 ```
 
-Con esto ya tendriamos instaladas las depencias de nuestro proyecto si queremos hacer una comprobación de la sintaxis para ver si es correcta debemos utilizar la siguiente orden
+Para resolver las dependencias de nuestro proyecto debemos situarnos en el directorio raiz y hacer la siguiente orden
 
+```shell
+poetry install
+```
+
+Si queremos agregar algun paquete 
+```shell
+poetry add requests[security,socks]
+```
+
+Para abrir el entorno utilizaremos
+
+```shell
+poetry shell
+```
+
+Para ver las tareas definidas
+```shell
+invoke -list
+```
+
+Si queremos comprobar la sintaxis del proyecto 
 ```shell
 invoke check
 ```
 
-Para lanzar los test de comprobación del programa tenemos la siguiente orden
-
-```shell
-invoke test
-```
-
 ## Documentación Adicional 
 
--> Justificación del uso de invoke [documento]https://github.com/josevilchez247/Odyssey/blob/HidraLerna/docs/gestorTareas.md
+-> Justificación del gestor de tareas y dependencias [documento]https://github.com/josevilchez247/Odyssey/blob/HidraLerna/docs/gestorTareas.md
 
 
