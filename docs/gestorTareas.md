@@ -4,7 +4,7 @@ Como gestor de dependencias me he decidido por utilizar Poetry al leer la docume
 
 Poetry es a día de hoy la herramienta puntera en este ámbito en cuanto a Python se refiere.
 
-#Gestor de Tareas
+# Gestor de Tareas
 
 Como gestor de tareas me he decantado por utilizar Invoke:
 
