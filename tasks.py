@@ -1,19 +1,6 @@
-#Fichero para la instalación de dependencias, lanzamiento de test y comprobacio  de la sintaxis.
+#Fichero para comprobación de la sintaxis y lanzamiento de test
 
 from invoke import task, run
-
-@task
-def installdeps(f):
-    #Instalacion de las dependencias del programa
-    
-    print("Instalando...")
-    run("pip install -r requirements.txt")
-
-@task
-def test(f):
-    #Comprobación del funcionamiento del código
-
-    print("Realizando test..")
 
 @task
 def check(f):
@@ -22,3 +9,11 @@ def check(f):
     print("Comprobando errores de sintaxis ... ")
     
     run("pylint --errors-only fuel_station")
+
+@task
+def test(f):
+    #Comprobación del funcionamiento del código
+
+    print("Realizando test..")
+
+
