@@ -25,12 +25,6 @@ Para resolver las dependencias de nuestro proyecto debemos situarnos en el direc
 poetry install
 ```
 
-Sí queremos agregar algún paquete 
-
-```shell
-poetry add requests[security,socks]
-```
-
 Para abrir el entorno utilizaremos
 
 ```shell
