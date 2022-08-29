@@ -1,13 +1,7 @@
-# Gestor de Dependencias
+# Gestor de Tareas (INVOKE)
 
-Como gestor de dependencias me he decidido por utilizar Poetry al leer la documentación del objetivo 3 y leer la documentación oficial de Poetry he visto que es muy completa y realmente sencillo de implementar, esto me ayudará bastante a la hora de desarrollar este objetivo y los suientes.
+Como gestor de tareas tenía varias posibilidades para el lenguaje que estoy utilizando, invoke, pypyr o make. Los criterios que voy a utilizar para elegir uno u otro serán, documentación, sintaxis sencilla y usabilidad. Siguiendo esas pautas Invoke es el gestor de tareas que voy a utilizar, ya que cuenta con una buena documentación, la sintaxis a la hora de declarar y gestionar las tareas me parece más cómoda que si utilizase make y por último he visto que es altamente utilizado por la comunidad de Python a la hora de desarrollar sus proyectos.
 
-Poetry es a día de hoy la herramienta puntera en este ámbito en cuanto a Python se refiere.
+# Gestor de Dependencias (POETRY)
 
-# Gestor de Tareas
-
-Como gestor de tareas me he decantado por utilizar Invoke:
-
-1. Invoke sigue la sintaxis de Python, frente a Makefile que posee su propia sintaxis. Invoke favorece la homogeneidad de sintaxis en el desarrollo de nuestro proyecto
-
-2. Invoke es independiente de la plataforma en la que se ejecute, ya que está basado en Python3. Makefile, por ejemplo, necesita un fichero .bat para su ejecución en Windows. La portabilidad de Invoke permite que se despliegue el proyecto con mayor comodidad en cualquier sistema
+Como gestor de dependencias también tenía varias opciones poetry, pipenv o hatch. En esta ocasión he elegido poetry, ya que su sintaxis es muy sencilla, mucho más que las otras dos opciones. Hatch cuenta con muchas más funcionalidades que poetry, pero a costa de una sintaxis mucho más compleja, además estas opciones no son necesarias en este proyecto. Por último destacar que en proyectos python poetry tiene muchas más menciones y estrellas que los demás.
