@@ -10,4 +10,39 @@ Esta aplicación va a calcular la mejor ruta desde el origen y el destino pero t
 esta ruta no será la ruta más rápida hasta el objetivo si no que calculará la mejor ruta teniendo en cuenta el precio de la gasolina de las gasolineras más cercanas en el momento que el coche tenga que
 repostar.
 
+## Instalación
+
+Para poder usar este proyecto debemos descargar sus ficheros de este repositorio previamente.
+
+A continuación debemos instalar el gestor de dependencias que vamos a utilizar en este caso Poetry, seguiremos los pasos de instalación que se indican en la [documentación](https://python-poetry.org/docs/)
+
+Para comprobar si la instalación se ha realizado de forma exitosa podemos hacer
+
+```shell
+poetry --version
+```
+
+Una vez instalado, podremos añadir dependencias de manera muy simple. En nuestro caso necesitamos añadir Poethepoet y lo agregaremos de esta forma:
+
+```shell
+poetry add --dev poethepoet
+```
+
+con esto lo añadiremos a las dependencias de desarrollo de nuestro repositorio.
+Por último nos queda instalar todas las dependencias
+
+```shell
+poe installdeps
+```
+de esta forma, todas las dependencias que aparecen en el archivo pyproject.toml se instalarán.
+Para comprobar que el código compila usaremos el comando
+
+```shell
+poe check
+```
+
+## Documentación Adicional 
+
+-> Justificación del gestor de tareas y dependencias [documento](https://github.com/josevilchez247/Odyssey/blob/HidraLerna-3/docs/task_runner.md)
+
 
