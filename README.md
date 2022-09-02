@@ -25,20 +25,20 @@ poetry --version
 Una vez instalado, podremos añadir dependencias de manera muy simple. En nuestro caso necesitamos añadir Poethepoet y lo agregaremos de esta forma:
 
 ```shell
-poetry add --dev poethepoet
+poetry self add 'poethepoet[poetry_plugin]'
 ```
 
 con esto lo añadiremos a las dependencias de desarrollo de nuestro repositorio.
 Por último nos queda instalar todas las dependencias
 
 ```shell
-poe installdeps
+poetry poe installdeps
 ```
 de esta forma, todas las dependencias que aparecen en el archivo pyproject.toml se instalarán.
 Para comprobar que el código compila usaremos el comando
 
 ```shell
-poe check
+poetry poe check
 ```
 
 ## Documentación Adicional 
