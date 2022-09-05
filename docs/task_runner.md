@@ -23,6 +23,8 @@ puedes cargar task desde otros archivos. Las tareas se pueden ejecutar en [virtu
 (es una herramienta para crear entornos Python aislados), lo cuál puede ser de  utilidad a la hora de resolver conflictos de dependencias y versiones.
 Las tareas se autodocumentan y pueden tener mensajes opcionales de ayuda. Poethepoet también cuenta con una integración con Docker muy sencilla.
 
+3- HATCH: Hatch es un gestor de proyectos Python moderno y extensible.Al igual que poethepoet nos permite definir las tareas en un mismo archivo pyproject.toml y tambien ejecutar task desde un script. Nos permite crear entornos aislados para pruebas, documentación de creación o cualquier otra cosa que los proyectos necesiten. Incorpora un control de versiones
+
 ## Gestor de Dependencias
 
 Tras la elección del task runner (POETHEPOET) hay que elegir un gestor de dependencias, un criterio esencial es que el task runner y el gestor de dependecias trabajen 
@@ -37,3 +39,12 @@ Tras la investigación he podido leer a cerca de varios gestores de dependencias
 ## Conclusión
 
 Siguiendo los criterios voy a elegir poethepoet como task runner y poetry como gestor de dependencias.
+
+## Bibliografía
+
+[POETHEPOET](https://github.com/nat-n/poethepoet)
+[INVOKE](https://www.pyinvoke.org/)
+[HATCH](https://github.com/pypa/hatch)
+[POETRY](https://python-poetry.org/docs/)
+[PIP](https://pypi.org/project/pip/)
+
