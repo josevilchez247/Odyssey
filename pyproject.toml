@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "odyssey"
 version = "0.7"
-description = "Calcula la ruta mas optima para el repostaje de gasolina en un viaje"
+description = "Calcula la ruta más óptima para el repostaje de gasolina en un viaje"
 authors = ["jose <josevilchez4@correo.ugr.es>"]
 
 [tool.poetry.dependencies]
