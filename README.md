@@ -14,8 +14,6 @@ repostar.
 
 Para poder usar este proyecto debemos descargar sus ficheros de este repositorio previamente.
 
-A continuación debemos instalar el gestor de dependencias que vamos a utilizar en este caso Poetry, seguiremos los pasos de instalación que se indican en la [documentación](https://python-poetry.org/docs/)
-
 Para comprobar si la instalación se ha realizado de forma exitosa podemos hacer
 
 ```shell
