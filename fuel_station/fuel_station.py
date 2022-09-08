@@ -25,35 +25,27 @@ class FuelType(Enum):
 # Clase que modela una gasolinera
 class FuelStation:
 
-    def __init__(self, ID, name, location, fuel_prices):
+    def __init__(self, ID, name, location, empleados, fuel_prices):
         self.ID = ID                    # Identificador único
         self.name = name                # Nombre de la gasolinera
         self.location = location        # Localización de la gasolinera
+        self.empleados = empleados      # Empleados que trabajan en esa gasolinera
 
-        # Diccionario cuya clave es el tipo de gasolina y el valor es el precio de la gasolina
-        # El argumento fuel_prices es un diccionario que almacena los precios
+        # Diccionario cuya clave es el tipo de gasolina y el valor es el precio oficial de la gasolina y el sugerido por los clientes en los comentarios
+        # El argumento fuel_prices es un diccionario que almacena los precios 
         self.fuel_prices = {
-            FuelType.DIESEL: fuel_prices[FuelType.DIESEL],
-            FuelType.DIESEL_PLUS: fuel_prices[FuelType.DIESEL_PLUS],
-            FuelType.GASOLINA: fuel_prices[FuelType.GASOLINA]
+            FuelType.DIESEL: [fuel_prices[FuelType.DIESEL],0],
+            FuelType.DIESEL_PLUS: [fuel_prices[FuelType.DIESEL_PLUS],0],
+            FuelType.GASOLINA: [fuel_prices[FuelType.GASOLINA],0]
         }
 
-        # Diccionario cuya clave es el tipo de gasolina y el valor es True si está verificado
-        # o False en caso de que no haya sido verificado
-        self.verified_prices = {
-            FuelType.DIESEL: False,
-            FuelType.DIESEL_PLUS: False,
-            FuelType.GASOLINA: False
-        }
-
-    # Método que propone un precio para un tipo de gasolina
+    # Método que cambia un precio oficial para un tipo de gasolina
     def set_fuel_price(self, fuel_type, price):
-        self.fuel_prices[fuel_type] = price
-        self.verified_prices[fuel_type] = False
-
-    # Método que verifica el precio de un tipo de gasolina
-    def verify_fuel_price(self, fuel_type):
-        self.verified_prices[fuel_type] = True
+        self.fuel_prices[fuel_type][0] = price
+        
+    # Método que cambia un precio sugerido para un tipo de gasolina
+    def set_fuel_price_suggested(self, fuel_type, price):
+        self.fuel_prices[fuel_type][1] = price
 
     # Método de clase que busca en la BD la gasolinera dado su identificador
     # y construye y devuelve un objeto de la clase FuelStation con los datos
