@@ -45,6 +45,13 @@ Para los test usaremos el comando
 poetry poe test
 ```
 
+## Principios F.I.R.S.T
+En los tests desarrollados, he seguido los pasos F.I.R.S.T.
+- **Fast** -> Porque los test son rapidos.
+- **Independent** -> No dependen los unos de los otros.
+- **Repeatable** -> El resultado de los test son los mismos independientemente de donde se ejecuten.
+- **Self-validating** -> Se podrian ejecutar de manera automatica. 
+
 ## Documentación Adicional 
 
 -> Justificación del gestor de tareas y dependencias [documento](https://github.com/josevilchez247/Odyssey/blob/HidraLerna-3/docs/task_runner.md)
