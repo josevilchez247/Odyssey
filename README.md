@@ -54,6 +54,8 @@ En los tests desarrollados, he seguido los pasos F.I.R.S.T.
 
 ## Documentación Adicional 
 
--> Justificación del gestor de tareas y dependencias [documento](https://github.com/josevilchez247/Odyssey/blob/HidraLerna-3/docs/task_runner.md)
+- Documentación adicional [aquí](https://github.com/josevilchez247/Odyssey/blob/ToroCreta-4/docs/historias-usuario.md)
 
--> Justificación del test runner y la biblioteca de aserciones [documento](https://github.com/josevilchez247/Odyssey/blob/ToroCreta-4/docs/test.md)
+- Justificación del gestor de tareas y dependencias [documento](https://github.com/josevilchez247/Odyssey/blob/HidraLerna-3/docs/task_runner.md)
+
+- Justificación del test runner y la biblioteca de aserciones [documento](https://github.com/josevilchez247/Odyssey/blob/ToroCreta-4/docs/test.md)
