@@ -7,3 +7,10 @@ Descripción de cada uno de los tipos de usuario que vamos a tener contemplados 
 
 1. [Viajero](https://github.com/josevilchez247/Odyssey/issues/7): Este usuario estará dado de alta en la app y la utilizará para calcular su ruta óptima, además podrá dejar comentarios en cada gasolinera para ver si los precios se corresponde con los indicados.
 2. [Trabajador](https://github.com/josevilchez247/Odyssey/issues/24): Este usuario estará dado de alta en la app como trabajador de la gasolinera y podrá modificar el precio de la gasolina directamente, con el objetivo de mantenerlo actualizado en tiempo real.
+
+
+---
+
+[HU1](https://github.com/josevilchez247/Odyssey/issues/7) Como usuario viajero quiero poder calcular la mejor ruta desde mi origen al destino para ahorrar o máximo posible en gasolina.
+
+[HU2](https://github.com/josevilchez247/Odyssey/issues/24) Como dependiente de la gasolinera quiero poder actualizar el precio de la gasolina, para que los viajeros reciban información verificada.
