@@ -2,7 +2,6 @@ lenguaje: python
 entidad: 
   - fuel_station/fuel_station.py
   - fuel_station/viajero.py
-  - fuel_station/trabajador.py
   
 automatizar: 
   fichero: pyproject.toml
@@ -10,4 +9,3 @@ automatizar:
   
 test: 
   - test/testViajero.py
-  - test/testTrabajador.py
