@@ -39,8 +39,23 @@ Para comprobar que el código compila usaremos el comando
 poetry poe check
 ```
 
+Para los test usaremos el comando
+
+```shell
+poetry poe test
+```
+
+## Principios F.I.R.S.T
+En los tests desarrollados, he seguido los pasos F.I.R.S.T.
+- **Fast** -> Porque los test son rapidos.
+- **Independent** -> No dependen los unos de los otros.
+- **Repeatable** -> El resultado de los test son los mismos independientemente de donde se ejecuten.
+- **Self-validating** -> Se podrian ejecutar de manera automatica. 
+
 ## Documentación Adicional 
 
--> Justificación del gestor de tareas y dependencias [documento](https://github.com/josevilchez247/Odyssey/blob/HidraLerna-3/docs/task_runner.md)
+- Documentación adicional [aquí](https://github.com/josevilchez247/Odyssey/blob/ToroCreta-4/docs/historias-usuario.md)
 
+- Justificación del gestor de tareas y dependencias [documento](https://github.com/josevilchez247/Odyssey/blob/HidraLerna-3/docs/task_runner.md)
 
+- Justificación del test runner y la biblioteca de aserciones [documento](https://github.com/josevilchez247/Odyssey/blob/ToroCreta-4/docs/test.md)
