@@ -25,10 +25,9 @@ class FuelType(Enum):
 # Clase que modela una gasolinera
 class FuelStation:
 
-    def __init__(self, ID, name, location, empleados, fuel_prices):
+    def __init__(self, ID, name):
         self.ID = ID                    # Identificador único
         self.name = name                # Nombre de la gasolinera
-        self.location = location        # Localización de la gasolinera
         self.ciudades = ["granada","almeria","jaen","malaga","cadiz","cordoba","sevilla","huelva"]
         self.mejorRuta = []
         self.visitadas = []
@@ -38,9 +37,9 @@ class FuelStation:
         # Diccionario cuya clave es el tipo de gasolina y el valor es el precio oficial de la gasolina y el sugerido por los clientes en los comentarios
         # El argumento fuel_prices es un diccionario que almacena los precios 
         self.fuel_prices = {
-            FuelType.DIESEL: [fuel_prices[FuelType.DIESEL],0],
-            FuelType.DIESEL_PLUS: [fuel_prices[FuelType.DIESEL_PLUS],0],
-            FuelType.GASOLINA: [fuel_prices[FuelType.GASOLINA],0]
+            FuelType.DIESEL: [fuel_prices[FuelType.DIESEL],1.4],
+            FuelType.DIESEL_PLUS: [fuel_prices[FuelType.DIESEL_PLUS],1.65],
+            FuelType.GASOLINA: [fuel_prices[FuelType.GASOLINA],1.45]
         }
         
         #DICCIONARIO DE CONEXIONES ENTRE CIUDADES
