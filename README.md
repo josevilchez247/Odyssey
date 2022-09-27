@@ -47,7 +47,7 @@ poetry poe test
 
 ## Principios F.I.R.S.T
 En los tests desarrollados, he seguido los pasos F.I.R.S.T.
-- **Fast** -> Porque los test son rapidos.
+- **Fast** -> Porque los test son rápidos.
 - **Independent** -> No dependen los unos de los otros.
 - **Repeatable** -> El resultado de los test son los mismos independientemente de donde se ejecuten.
 - **Self-validating** -> Se podrian ejecutar de manera automatica. 
