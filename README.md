@@ -45,6 +45,16 @@ Para los test usaremos el comando
 poetry poe test
 ```
 
+Docker Build
+```shell
+poetry run docker-build
+```
+
+Docker Run
+```
+poetry run docker-run
+```
+
 ## Principios F.I.R.S.T
 En los tests desarrollados, he seguido los pasos F.I.R.S.T.
 - **Fast** -> Porque los test son rápidos.
@@ -59,3 +69,5 @@ En los tests desarrollados, he seguido los pasos F.I.R.S.T.
 - Justificación del gestor de tareas y dependencias [documento](https://github.com/josevilchez247/Odyssey/blob/HidraLerna-3/docs/task_runner.md)
 
 - Justificación del test runner y la biblioteca de aserciones [documento](https://github.com/josevilchez247/Odyssey/blob/ToroCreta-4/docs/test.md)
+
+- Justificación imagen del contenedor de docker [documento](https://github.com/josevilchez247/Odyssey/blob/CiervaCerinea-5/docs/docker.md)
