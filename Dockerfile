@@ -5,4 +5,4 @@ RUN chown -R odyssey .
 USER odyssey
 COPY --chown=odyssey pyproject.toml ./
 WORKDIR /app/test
-ENTRYPOINT ["poe","run","test"]
+ENTRYPOINT ["poetry","run","test"]
