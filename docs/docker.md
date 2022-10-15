@@ -11,3 +11,7 @@ Las opciones que he estudiado han sido [Python](https://hub.docker.com/_/python)
 python en concreto la versión slim. Alpine cuenta con una versión slim también con un peso que ronda los ~5 MB,pero he visto que para conseguir que sea tan liguera no incluye
 herramientas relacionadas con git y bash por lo que he descartado esta opción, aunque son bastante parecidas, ya que ambas son versiones slim, cuento con que si en algún momento necesito
 alguna herramienta tan solo debo añadirlo a las dependencias.
+
+# Github Action
+
+Para actualizar el contenedor docker y subirlo a [DockerHub](https://hub.docker.com/repository/docker/josevilchez4/odyssey) de forma automática he creado un Github Action.
