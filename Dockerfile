@@ -5,8 +5,8 @@ LABEL maintainer="josevilchez247"
 WORKDIR /app
 COPY ./pyproject.toml /app/
 
-RUN addgroup -S testgroup && adduser -S test -G testgroup
-USER test
+RUN useradd -m -r -g testuser testuser
+USER testuser
 WORKDIR /app/test
 
 RUN wget -q -O - "$@" https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
