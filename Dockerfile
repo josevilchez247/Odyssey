@@ -7,11 +7,11 @@ RUN groupadd -g 1000 -r odyssey && \
 
 USER odyssey
 
-WORKDIR /app/test
+WORKDIR /app/test/
 
 ENV PATH=$PATH:/home/odyssey/.local/bin
 
-COPY --chown=odyssey pyproject.toml ./
+COPY pyproject.toml /app/
 
 RUN pip install poetry && \
     poetry config virtualenvs.create false && \
