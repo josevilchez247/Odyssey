@@ -2,20 +2,16 @@ FROM python:3.9-slim
 
 LABEL maintainer="josevilchez247"
 
-RUN groupadd -g 1000 -r odyssey && \
-    useradd -u 1000 -m -r -g odyssey odyssey
+RUN  RUN groupadd -r testuser && useradd -m -r -g testuser testuser
 
-USER odyssey
+USER testuser
 
-WORKDIR /app/test/
+WORKDIR /home/testuser
 
-ENV PATH=$PATH:/home/odyssey/.local/bin
+COPY pyproject.toml ./
 
-COPY pyproject.toml /app/
+ENV PATH=$PATH:/home/testuser/.local/bin
 
-RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
-
-RUN poetry config virtualenvs.create false && \
-    poetry install --no-dev
+RUN pip3 install poetry; poetry config virtualenvs.create false; poetry install
 
 ENTRYPOINT ["poetry","run","test"]
