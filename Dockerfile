@@ -5,7 +5,7 @@ LABEL maintainer="josevilchez247"
 WORKDIR /app
 COPY ./pyproject.toml /app/
 
-RUN ln -s /usr/bin/python /usr/bin/python3.9; addgroup -S testgroup && adduser -S test -G testgroup
+RUN addgroup -S testgroup && adduser -S test -G testgroup
 USER test
 WORKDIR /app/test
 
