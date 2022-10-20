@@ -2,11 +2,10 @@ FROM python:3.9-slim
 
 LABEL maintainer="josevilchez247"
 
-ENV POETRY_HOME="/opt/poetry" \
-    VENV_PATH="/opt/pysetup/.venv" 
+ENV POETRY_HOME="/opt/poetry"
 
 # prepend poetry and venv to path
-ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
+ENV PATH="$POETRY_HOME/bin
 
 RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
