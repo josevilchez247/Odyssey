@@ -16,4 +16,4 @@ WORKDIR /app/test/
 
 RUN poetry install --no-dev
 
-ENTRYPOINT ["poetry","test"]
+ENTRYPOINT ["poetry","poe","test"]
