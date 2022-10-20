@@ -9,7 +9,7 @@ RUN groupadd -r testuser && useradd -m -r -g testuser testuser
 USER testuser
 WORKDIR /app/test
 
-RUN wget -q -O - "$@" https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 - --version 1.2.0
 
 ENV PATH=$PATH:/home/test/.local/bin:/home/test/.poetry/bin
 
