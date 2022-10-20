@@ -2,16 +2,17 @@ FROM python:3.9-slim
 
 LABEL maintainer="josevilchez247"
 
-RUN groupadd -r testuser && useradd -m -r -g testuser testuser
+WORKDIR /app
+COPY ./pyproject.toml /app/
 
-USER testuser
+RUN apk update; apk add curl; ln -s /usr/bin/python /usr/bin/python3.9; addgroup -S testgroup && adduser -S test -G testgroup
+USER test
+WORKDIR /app/test
 
-WORKDIR /home/testuser
+RUN wget -q -O - "$@" https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
-COPY pyproject.toml ./
+ENV PATH=$PATH:/home/test/.local/bin:/home/test/.poetry/bin
 
-ENV PATH=$PATH:/home/testuser/.local/bin
-
-RUN pip3 install poetry; poetry config virtualenvs.create false; poetry install
+RUN  poetry config virtualenvs.create false; poetry installdeps --dev
 
 ENTRYPOINT ["poetry","run","test"]
