@@ -5,7 +5,7 @@ LABEL maintainer="josevilchez247"
 WORKDIR /app
 COPY ./pyproject.toml /app/
 
-RUN useradd -m -r -g testuser testuser
+RUN groupadd -r testuser && useradd -m -r -g testuser testuser
 USER testuser
 WORKDIR /app/test
 
