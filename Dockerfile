@@ -2,17 +2,14 @@ FROM python:3.9-slim
 
 LABEL maintainer="josevilchez247"
 
-WORKDIR /app
-COPY ./pyproject.toml /app/
+RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
-RUN groupadd -r testuser && useradd -m -r -g testuser testuser
-USER testuser
-WORKDIR /app/test
+RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
 
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 - --version 1.2.0
+WORKDIR /app/test/
 
-ENV PATH=$PATH:/home/test/.local/bin:/home/test/.poetry/bin
+COPY pyproject.toml /app/
 
-RUN  poetry config virtualenvs.create false; poetry installdeps --dev
+RUN poetry config virtualenvs.create false && poetry install --no-dev
 
 ENTRYPOINT ["poetry","run","test"]
