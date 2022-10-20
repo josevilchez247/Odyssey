@@ -4,12 +4,16 @@ LABEL maintainer="josevilchez247"
 
 RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
-RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
+ENV POETRY_HOME="/opt/poetry" \
+    POETRY_VERSION=1.2.2
+ENV PATH="$POETRY_HOME/bin:$PATH"
 
-WORKDIR /app/test/
+RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
 
 COPY pyproject.toml /app/
 
-RUN poetry config virtualenvs.create false && poetry install --no-dev
+WORKDIR /app/test/
+
+RUN poetry install --no-dev
 
 ENTRYPOINT ["poetry","run","test"]
