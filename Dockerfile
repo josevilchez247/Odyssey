@@ -7,15 +7,15 @@ RUN groupadd -g 1000 -r odyssey && \
 
 USER odyssey
 
+WORKDIR /app/test/
+
 ENV PATH=$PATH:/home/odyssey/.local/bin
+
+COPY pyproject.toml /app/
 
 RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
 RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
-
-WORKDIR /app/test/
-
-COPY pyproject.toml /app/
 
 RUN poetry config virtualenvs.create false && \
     poetry install --no-dev
