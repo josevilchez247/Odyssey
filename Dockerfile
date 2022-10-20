@@ -2,10 +2,7 @@ FROM python:3.9-slim
 
 LABEL maintainer="josevilchez247"
 
-ENV POETRY_HOME="/opt/poetry"
-
-# prepend poetry and venv to path
-ENV PATH="$POETRY_HOME/bin
+ENV PATH=$PATH:/home/odyssey/.local/bin
 
 RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
