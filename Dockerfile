@@ -1,8 +1,20 @@
-FROM python:3-slim
-RUN adduser --disabled-password odyssey
-WORKDIR /app
-RUN chown -R odyssey .
+FROM python:3.9-slim
+
+LABEL maintainer="josevilchez247"
+
+RUN groupadd -g 1000 -r odyssey && \
+    useradd -u 1000 -m -r -g odyssey odysey
+
 USER odyssey
-COPY --chown=odyssey pyproject.toml ./
+
 WORKDIR /app/test
-ENTRYPOINT ["poetry","run","test"]
+
+ENV PATH=$PATH:/home/odyssey/.local/bin
+
+COPY --chown=odyssey pyproject.toml ./
+
+RUN pip install poetry && \
+    poetry config virtualenvs.create false && \
+    poetry install
+
+ENTRYPOINT ["poe","test"]
