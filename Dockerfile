@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 LABEL maintainer="josevilchez247"
 
-RUN  RUN groupadd -r testuser && useradd -m -r -g testuser testuser
+RUN groupadd -r testuser && useradd -m -r -g testuser testuser
 
 USER testuser
 
