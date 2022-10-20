@@ -16,6 +16,7 @@ WORKDIR /app/test/
 
 COPY pyproject.toml /app/
 
-RUN poetry install --no-dev
+RUN poetry config virtualenvs.create false && \
+    poetry install --no-dev
 
 ENTRYPOINT ["poetry","run","test"]
