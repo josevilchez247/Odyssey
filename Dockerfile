@@ -21,9 +21,9 @@ COPY --chown=usertest pyproject.toml ./
 
 ENV PATH=$PATH:/home/usertest/.local/bin
 
+WORKDIR /app/test
+
 RUN poetry config virtualenvs.create false && \
     poetry install --no-dev
-
-WORKDIR /app/test
 
 ENTRYPOINT ["poetry","run","test"]
