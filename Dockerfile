@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.8-slim
 
 LABEL maintainer="josevilchez247"
 
@@ -6,7 +6,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y curl build-esse
 
 ENV POETRY_HOME="/opt/poetry" \
     POETRY_VERSION=1.2.2
-ENV PATH="$POETRY_HOME/bin:$PATH"
 
 RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
 
