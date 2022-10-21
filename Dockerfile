@@ -8,7 +8,7 @@ COPY pyproject.toml /app/
 
 RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
-RUN ln -s /usr/bin/python /usr/bin/python3.8; addgroup -S testgroup && adduser -S test -G testgroup
+RUN addgroup -S testgroup && adduser -S test -G testgroup
 
 USER test
 
