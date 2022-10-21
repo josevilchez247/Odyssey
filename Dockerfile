@@ -20,6 +20,6 @@ RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
 
 ENV PATH=$PATH:/home/test/.local/bin:/home/test/.poetry/bin
 
-RUN  poetry config virtualenvs.create false; poetry install --only dev
+RUN  poetry config virtualenvs.create false; poetry install --no-dev
     
 ENTRYPOINT ["poetry","run","test"]
