@@ -10,10 +10,18 @@ ENV PATH="$POETRY_HOME/bin:$PATH"
 
 RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
 
-COPY pyproject.toml /app/
+RUN adduser --disabled-password usertest
 
-WORKDIR /app/test/
+WORKDIR /app
+
+RUN chown -R usertest .
+
+USER usertest
+
+COPY --chown=usertest pyproject.toml ./
 
 RUN poetry install --no-dev
 
-ENTRYPOINT ["poetry","poe","test"]
+WORKDIR /app/test
+
+ENTRYPOINT ["poetry","run","test"]
