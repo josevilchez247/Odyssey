@@ -15,10 +15,6 @@ assertpy = "^1.1"
 [tool.poetry.plugins."poetry.application.plugin"]
 poethepoet = "poethepoet.plugin:PoetryPlugin"
 
-[tool.poetry.scripts]
-docker-build = "docker build -t josevilchez4"
-docker-run = "run -t -v `pwd`:/app/test josevilchez4"
-
 [tool.poe.tasks]
 
    [tool.poe.tasks.test]
