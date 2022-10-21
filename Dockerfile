@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y curl build-esse
 
 RUN adduser --disabled-password test
 
-RUN chown -R test
+RUN chown -R test .
 
 USER test
 
