@@ -23,7 +23,6 @@ ENV PATH=$PATH:/home/usertest/.local/bin
 
 WORKDIR /app/test
 
-RUN poetry install --no-dev && \
-    poetry config virtualenvs.create false
+RUN poetry install --no-dev
     
 ENTRYPOINT ["poetry","run","test"]
