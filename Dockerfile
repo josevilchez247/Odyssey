@@ -11,9 +11,9 @@ RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
 
 RUN adduser --disabled-password usertest
 
-RUN chown -R usertest .
+WORKDIR /app
 
-WORKDIR /app/test
+RUN chown -R usertest .
 
 USER usertest
 
@@ -23,5 +23,7 @@ ENV PATH=$PATH:/home/usertest/.local/bin
 
 RUN poetry config virtualenvs.create false && \
     poetry install --no-dev
+
+WORKDIR /app/test
 
 ENTRYPOINT ["poetry","run","test"]
