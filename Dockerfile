@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.9-slim
 
 LABEL maintainer="josevilchez247"
 
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y curl build-esse
 
 RUN adduser --disabled-password test
 
-RUN ln -s /usr/bin/python /usr/bin/python3.8; addgroup -S testgroup && adduser -S test -G testgroup
+RUN chown -R test
 
 USER test
 
