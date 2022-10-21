@@ -4,7 +4,7 @@ LABEL maintainer="josevilchez247"
 
 WORKDIR /app
 
-COPY pyproject.toml /app/
+COPY pyproject.toml* /app/
 
 RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
