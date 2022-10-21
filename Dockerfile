@@ -2,27 +2,22 @@ FROM python:3.8-slim
 
 LABEL maintainer="josevilchez247"
 
-RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
-
-ENV POETRY_HOME="/opt/poetry" \
-    POETRY_VERSION=1.2.2
-
-RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
-
-RUN adduser --disabled-password usertest
-
 WORKDIR /app
 
-RUN chown -R usertest .
+COPY pyproject.toml /app/
 
-USER usertest
+RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
-COPY --chown=usertest pyproject.toml ./
+RUN ln -s /usr/bin/python /usr/bin/python3.8; addgroup -S testgroup && adduser -S test -G testgroup
 
-ENV PATH=$PATH:/home/usertest/.local/bin
+USER test
 
 WORKDIR /app/test
 
-RUN poetry install --no-dev
+RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
+
+ENV PATH=$PATH:/home/test/.local/bin:/home/test/.poetry/bin
+
+RUN  poetry config virtualenvs.create false; poetry installdeps --dev
     
 ENTRYPOINT ["poetry","run","test"]
