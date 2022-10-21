@@ -20,7 +20,8 @@ USER usertest
 
 COPY --chown=usertest pyproject.toml ./
 
-RUN poetry install --no-dev
+RUN poetry config virtualenvs.create false && \
+    poetry install --no-dev
 
 WORKDIR /app/test
 
