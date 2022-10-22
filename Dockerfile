@@ -19,7 +19,5 @@ WORKDIR /app/test
 RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
 
 ENV PATH=$PATH:/home/test/.local/bin:/home/test/.poetry/bin
-
-RUN  poetry config virtualenvs.create false
     
 ENTRYPOINT ["poetry","run","test"]
