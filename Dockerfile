@@ -22,4 +22,4 @@ ENV PATH=$PATH:/home/test/.local/bin:/home/test/.poetry/bin
 
 RUN  poetry config virtualenvs.create false; poetry install --only main
     
-ENTRYPOINT ["poetry","run","test"]
+ENTRYPOINT ["sudo poetry","run","test"]
