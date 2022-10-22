@@ -2,10 +2,6 @@ FROM python:3.9-slim
 
 LABEL maintainer="josevilchez247"
 
-WORKDIR /app
-
-COPY pyproject.toml* /app/
-
 RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
 RUN adduser --disabled-password test
@@ -16,10 +12,12 @@ USER test
 
 WORKDIR /app/test
 
+ENV PATH=$PATH:/home/test/.local/bin
+
+COPY pyproject.toml* /app/
+
 RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
 
-ENV PATH=$PATH:/home/test/.local/bin:/home/test/.poetry/bin
-
-RUN sudo poetry config virtualenvs.create false; sudo poetry install --only main
+RUN poetry config virtualenvs.create false; poetry install --only main
     
 ENTRYPOINT ["poetry","run","test"]
