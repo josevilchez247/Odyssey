@@ -12,7 +12,7 @@ WORKDIR /app/test
 
 ENV PATH=$PATH:/home/test/.local/bin
 
-COPY pyproject.toml* /app/
+COPY pyproject.toml poetry.lock /app/
 
 RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
 
