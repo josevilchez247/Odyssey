@@ -1,23 +1,20 @@
 FROM python:3.9-slim
 
-LABEL maintainer="josevilchez247"
+LABEL maintainer="josevilchez247" version="1.0.0" 
 
-WORKDIR /app
+RUN groupadd -g 1000 -r usertest && \
+    useradd -u 1000 -m -r -g usertest usertest
 
-COPY pyproject.toml* /app/
+USER usertest
 
-RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
+WORKDIR /app/test/
 
-RUN adduser --disabled-password test
+ENV PATH=$PATH:/home/usertest/.local/bin
 
-RUN chown -R test .
+COPY pyproject.toml poetry.lock /app/
 
-USER test
+RUN pip install poetry && \
+    poetry config virtualenvs.create false && \
+    poetry install --only main
 
-WORKDIR /app/test
-
-RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
-
-ENV PATH=$PATH:/home/test/.local/bin:/home/test/.poetry/bin
-    
-ENTRYPOINT ["poetry","run","test"]
+ENTRYPOINT ["poe", "test"]
