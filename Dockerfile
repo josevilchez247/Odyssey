@@ -14,8 +14,7 @@ ENV PATH=$PATH:/home/usertest/.local/bin
 COPY pyproject.toml poetry.lock /app/
 
 RUN pip install poetry && \
-    pip install poethepoet && \
     poetry config virtualenvs.create false && \
     poetry install
 
-ENTRYPOINT ["poe", "test"]
+ENTRYPOINT ["poetry", "run", "test"]
