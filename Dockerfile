@@ -17,4 +17,4 @@ RUN pip install poetry && \
     poetry config virtualenvs.create false && \
     poetry install --only main
 
-ENTRYPOINT ["poe", "test"]
+ENTRYPOINT ["poetry", "run", "test"]
