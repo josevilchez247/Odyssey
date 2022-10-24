@@ -13,4 +13,4 @@ ENV PATH=$PATH:/home/testuser/.local/bin
 
 RUN pip3 install poetry; poetry config virtualenvs.create false; poetry install
 
-ENTRYPOINT ["poetry", "run", "test"]
+ENTRYPOINT ["invoke", "test"]
