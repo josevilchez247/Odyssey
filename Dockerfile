@@ -1,4 +1,4 @@
-FROM python:3.8.10-slim
+FROM python:3.9-slim
 LABEL version="0.1.2" maintainer="josevilchez247@gmail.com"
 
 RUN apt-get update \
