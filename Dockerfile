@@ -14,7 +14,6 @@ ENV PATH=$PATH:/home/usertest/.local/bin
 COPY pyproject.toml poetry.lock /app/
 
 RUN pip install poetry && \
-    poetry lock --no-update && \
     poetry config virtualenvs.create false && \
     poetry install --only-root
 
