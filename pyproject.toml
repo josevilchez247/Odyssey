@@ -6,7 +6,7 @@ authors = ["Jose Vilchez"]
 license = "GPL-3.0-or-later"
 
 [tool.poetry.dependencies]
-python = "==3.8.10"
+python = "^3.9.15"
 
 [tool.poetry.dev-dependencies]
 invoke = "^1.6.0"
