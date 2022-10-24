@@ -20,40 +20,30 @@ Para comprobar si la instalación se ha realizado de forma exitosa podemos hacer
 poetry --version
 ```
 
-Una vez instalado, podremos añadir dependencias de manera muy simple. En nuestro caso necesitamos añadir Poethepoet y lo agregaremos de esta forma:
+Una vez instalado, podremos añadir dependencias de manera muy simple.
 
 ```shell
-poetry self add 'poethepoet[poetry_plugin]'
+invoke installdeps
 ```
 
 con esto lo añadiremos a las dependencias de desarrollo de nuestro repositorio.
 Por último nos queda instalar todas las dependencias
 
 ```shell
-poetry poe installdeps
+invoke installdeps
 ```
 de esta forma, todas las dependencias que aparecen en el archivo pyproject.toml se instalarán.
 Para comprobar que el código compila usaremos el comando
 
 ```shell
-poetry poe check
+invoke check
 ```
 
 Para los test usaremos el comando
 
 ```shell
-poetry poe test
-```
+invoke test
 
-Docker Build
-```shell
-poetry run docker-build
-```
-
-Docker Run
-```
-poetry run docker-run
-```
 
 ## Principios F.I.R.S.T
 En los tests desarrollados, he seguido los pasos F.I.R.S.T.
