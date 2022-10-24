@@ -1,20 +1,16 @@
-FROM python:3.9-slim
+FROM python:3.8-slim-buster
 
-LABEL maintainer="josevilchez247" version="1.0.0" 
+LABEL maintainer="josevilchez247"
 
-RUN groupadd -g 1000 -r usertest && \
-    useradd -u 1000 -m -r -g usertest usertest
+RUN groupadd -r testuser && useradd -m -r -g testuser testuser
+USER testuser
 
-USER usertest
-
-WORKDIR /app/test/
-
-ENV PATH=$PATH:/home/usertest/.local/bin
+WORKDIR /app/test
 
 COPY pyproject.toml poetry.lock /app/
 
-RUN pip install poetry && \
-    poetry config virtualenvs.create false && \
-    poetry install --only-root
+ENV PATH=$PATH:/home/testuser/.local/bin
+
+RUN pip3 install poetry; poetry config virtualenvs.create false; poetry install
 
 ENTRYPOINT ["poetry", "run", "test"]
