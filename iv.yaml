@@ -2,8 +2,8 @@ lenguaje: python
 entidad: fuel_station/fuel_station.py
   
 automatizar: 
-  fichero: pyproject.toml
-  orden: poe
+  fichero: task.py
+  orden: invoke
   
 test: 
   - test/testRutaOptima.py

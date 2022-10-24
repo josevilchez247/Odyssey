@@ -1,16 +1,29 @@
-FROM python:3.8-slim-buster
+FROM python:3.8.10-slim
+LABEL version="0.1.2" maintainer="josevilchez247@gmail.com"
 
-LABEL maintainer="josevilchez247"
+RUN apt-get update \
+    && pip install poetry \
+    # Creamos el usuario:
+        # Flag -r: crea una cuenta del sistema.
+        # Flag -m: crea el directorio personal del usuario.
+        # Flag -g: indicamos el nombre del grupo primario de la nueva cuenta.
+    && groupadd -r pyContainer && useradd -m -g pyContainer pyContainer
+    
+USER pyContainer
 
-RUN groupadd -r testuser && useradd -m -r -g testuser testuser
-USER testuser
-
+# Definición del directorio de trabajo.
 WORKDIR /app/test
 
-COPY pyproject.toml poetry.lock /app/
+# Movemos el fichero de depencencias y el fuente del gestor de tareas al directorio de trabajo.
+COPY poetry.lock pyproject.toml task.py /app/test/
 
-ENV PATH=$PATH:/home/testuser/.local/bin
+# Añadimos a PATH el directorio para el log de Python.
+ENV PATH = "$PATH:/home/pyContainer/.local/bin"
 
-RUN pip3 install poetry; poetry config virtualenvs.create false; poetry install
+# Instalamos las dependencias para instalar a su vez el gestor de tareas
+RUN poetry config experimental.new-installer false \
+    && poetry config virtualenvs.create false \
+    && poetry install
 
+# Ejecución de los tests.
 ENTRYPOINT ["invoke", "test"]
