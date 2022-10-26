@@ -9,7 +9,6 @@ Quiero crear una aplicación para ahorrar dinero cuando hacemos un viaje.
 Esta aplicación va a calcular la mejor ruta desde el origen y el destino pero teniendo en cuenta las características del vehículo dónde viajamos (gasolina/diésel, consumo, capacidad del tanque), 
 esta ruta no será la ruta más rápida hasta el objetivo si no que calculará la mejor ruta teniendo en cuenta el precio de la gasolina de las gasolineras más cercanas en el momento que el coche tenga que
 repostar.
-
 ## Instalación
 
 Para poder usar este proyecto debemos descargar sus ficheros de este repositorio previamente.
@@ -20,30 +19,30 @@ Para comprobar si la instalación se ha realizado de forma exitosa podemos hacer
 poetry --version
 ```
 
-Una vez instalado, podremos añadir dependencias de manera muy simple.
+Una vez instalado, podremos añadir dependencias de manera muy simple. En nuestro caso necesitamos añadir Poethepoet y lo agregaremos de esta forma:
 
 ```shell
-invoke installdeps
+poetry self add 'poethepoet[poetry_plugin]'
 ```
 
 con esto lo añadiremos a las dependencias de desarrollo de nuestro repositorio.
 Por último nos queda instalar todas las dependencias
 
 ```shell
-invoke installdeps
+poetry poe installdeps
 ```
 de esta forma, todas las dependencias que aparecen en el archivo pyproject.toml se instalarán.
 Para comprobar que el código compila usaremos el comando
 
 ```shell
-invoke check
+poetry poe check
 ```
 
 Para los test usaremos el comando
 
 ```shell
-invoke test
-
+poetry poe test
+```
 
 ## Principios F.I.R.S.T
 En los tests desarrollados, he seguido los pasos F.I.R.S.T.
