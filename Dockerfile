@@ -1,29 +1,20 @@
 FROM python:3.9-slim
-LABEL version="0.1.2" maintainer="josevilchez247@gmail.com"
 
-RUN apt-get update \
-    && pip install poetry \
-    # Creamos el usuario:
-        # Flag -r: crea una cuenta del sistema.
-        # Flag -m: crea el directorio personal del usuario.
-        # Flag -g: indicamos el nombre del grupo primario de la nueva cuenta.
-    && groupadd -r pyContainer && useradd -m -g pyContainer pyContainer
-    
-USER pyContainer
+LABEL maintainer="josevilchez247" version="1.0.0" 
 
-# Definición del directorio de trabajo.
-WORKDIR /app/test
+RUN groupadd -g 1000 -r usertest && \
+    useradd -u 1000 -m -r -g usertest usertest
 
-# Movemos el fichero de depencencias y el fuente del gestor de tareas al directorio de trabajo.
-COPY poetry.lock pyproject.toml task.py /app/test/
+USER usertest
 
-# Añadimos a PATH el directorio para el log de Python.
-ENV PATH = "$PATH:/home/pyContainer/.local/bin"
+WORKDIR /app/test/
 
-# Instalamos las dependencias para instalar a su vez el gestor de tareas
-RUN poetry config experimental.new-installer false \
-    && poetry config virtualenvs.create false \
-    && poetry install
+ENV PATH=$PATH:/home/usertest/.local/bin
 
-# Ejecución de los tests.
-ENTRYPOINT ["invoke", "test"]
+COPY pyproject.toml poetry.lock /app/
+
+RUN pip install poetry && \
+    poetry config virtualenvs.create false && \
+    poetry install --only-root
+
+ENTRYPOINT ["poetry", "run", "test"]
