@@ -1,20 +1,30 @@
 FROM python:3.9-slim
 
-LABEL maintainer="josevilchez247" version="1.0.0" 
+LABEL maintainer="josevilchez247" version="1.2.0" 
 
-RUN groupadd -g 1000 -r usertest && \
-    useradd -u 1000 -m -r -g usertest usertest
+# Crear usuario que ejecutará el contenedor y el grupo al que pertenece
+RUN groupadd -r usertest && useradd -m --no-log-init -r -g usertest usertest
 
+# Usuario que ejecuta el contenedor
 USER usertest
 
-WORKDIR /app/test/
+# Copiar pyproject.toml y poetry.lock para poder instalar dependencias más tarde
+COPY pyproject.toml poetry.lock ./
 
-ENV PATH=$PATH:/home/usertest/.local/bin
+# Cambiar a directorio de trabajo para la instalación
+WORKDIR /app/test
 
-COPY pyproject.toml poetry.lock /app/
+# Añadir .local/bin al PATH para incluir instalación de scripts
+# como poe por ejemplo
+ENV PATH="$PATH:/home/usertest/.local/bin:${PATH}"
 
-RUN pip install poetry && \
+# Mejorar la versión de pip: eliminar warnings
+RUN python -m pip install --upgrade pip
+
+# Instalar herramientas necesarias para el proyecto (poetry y poethepoet)
+RUN pip3 install poetry && \
     poetry config virtualenvs.create false && \
-    poetry install --only-root
+    poetry install
 
-ENTRYPOINT ["poetry", "run", "test"]
+# Pasar los tests
+ENTRYPOINT ["poe", "test"]
