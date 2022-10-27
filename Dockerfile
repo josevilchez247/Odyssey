@@ -24,7 +24,7 @@ RUN python -m pip install --upgrade pip
 # Instalar herramientas necesarias para el proyecto (poetry y poethepoet)
 RUN pip3 install poetry && \
     poetry config virtualenvs.create false && \
-    poetry install
+    poetry install --only-root
 
 # Pasar los tests
 ENTRYPOINT ["poe", "test"]
