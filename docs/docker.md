@@ -3,14 +3,9 @@
 
 # Justificación de la Elección
 
-Para llevar a cabo la ejecución de los test que van a probar el código vamos a desplegar un contenedor de docker, dicho contendor debe tener una imagen la cual debe satisfacer 
-las necesidades del proyecto. Como este proyecto es algo académico y solamente se va a utilizar para ejecutar los test,no necesitamos una imagen que pese demasiado y que tenga una 
-gran cantidad de herramientas ya instaladas.
+Para llevar a cabo la ejecución de los test que van a probar el código vamos a desplegar un contenedor de docker, dicho contendor debe tener una imagen la cual debe satisfacer las necesidades del proyecto. Como este proyecto es algo académico y solamente se va a utilizar para ejecutar los test,no necesitamos una imagen que pese demasiado y que tenga una gran cantidad de herramientas ya instaladas.
 
-Las opciones que he estudiado han sido [Python](https://hub.docker.com/_/python) y [Alpine](https://hub.docker.com/_/alpine), basándome en lo dicho anteriormente he decido usar
-python en concreto la versión slim. Alpine cuenta con una versión slim también con un peso que ronda los ~5 MB,pero he visto que para conseguir que sea tan liguera no incluye
-herramientas relacionadas con git y bash por lo que he descartado esta opción, aunque son bastante parecidas, ya que ambas son versiones slim, cuento con que si en algún momento necesito
-alguna herramienta tan solo debo añadirlo a las dependencias.
+Únicamente lo que nos hace falta es tener python en la imagen, ahora tocaría preguntarse, ¿con qué versión? En un inicio decicí probar la ultima versión python:3.9 y observé que no cumplía con uno de nuestros requisitos básicos, ser ligero, ya que , tenía un tamaño excesivamente grande ~900MB , además del tiempo que se necesitaba para descargar o actualizar la imagen en Dockerhub. Tras esto se probó entre distintas versiones de contenedores base de python como pueden ser alpine y slim. El contenedor base python:3.9-alpine podría ser una buena opción ya que tiene un tamaño muy reducido en comparación con la imagen base del lenguaje ~5 MB, sin embargo, puede tener problemas git y bash por lo que descarté esa opción. El contenedor base python:3.9-slim, al igual que alpine, tiene un tamaño muy reducido, no contiene los paquetes comunes contenidos en la imagen base por defecto y además sólo contiene los páquetes mínimos para poder correr python. Tras crear nuestra imagen usando este contenedor base se pudo comprobar que cumplía nuestros dos requisitos, ser de tamaño reducido y no generar problemas de paquetes no instalados, cosa que ocurría con alpine.
 
 # Github Action
 
