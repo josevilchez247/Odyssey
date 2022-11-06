@@ -1,0 +1,22 @@
+# Usamos la útima versión de CircleCI pipeline process engine
+version: 2.1
+
+# Definimos un trabajo para ser invocado posteriormente en un workflow
+jobs:
+  ejecutar-tests:   # Nombre del trabajo
+    # Definimos el entorno donde se ejecutará nuestro trabajo, en este
+    # caso en una máquina virtual de Linux:
+    # Ubuntu 20.04, Docker v20.10.11, Docker Compose v1.29.2
+    machine:
+      image: ubuntu-2004:202111-01
+    steps:
+      - checkout
+      - run:
+          name: Run tests
+          # Utilizar el contenedor creado en el  objetivo anterior para pasar los tests
+          command: docker run -t -v `pwd`:/app/test josevilchez247/odyssey
+
+workflows:
+  tets-workflow: 
+    jobs:
+      - ejecutar-tests
