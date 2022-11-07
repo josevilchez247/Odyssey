@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.8-slim
 
 LABEL maintainer="josevilchez247" version="1.2.0" 
 
