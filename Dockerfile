@@ -1,6 +1,8 @@
-FROM python:3.9-slim
+FROM python:3.8-slim
 
 LABEL maintainer="josevilchez247" version="1.2.0" 
+
+RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
 
 # Crear usuario que ejecutará el contenedor y el grupo al que pertenece
 RUN groupadd -r usertest && useradd -m --no-log-init -r -g usertest usertest
@@ -9,7 +11,7 @@ RUN groupadd -r usertest && useradd -m --no-log-init -r -g usertest usertest
 USER usertest
 
 # Copiar pyproject.toml y poetry.lock para poder instalar dependencias más tarde
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml poetry.lock /app/
 
 # Añadir .local/bin al PATH para incluir instalación de scripts
 # como poe por ejemplo
@@ -18,13 +20,10 @@ ENV PATH="$PATH:/home/usertest/.local/bin:${PATH}"
 # Cambiar a directorio de trabajo para la instalación
 WORKDIR /app/test
 
-# Mejorar la versión de pip: eliminar warnings
-RUN python -m pip install --upgrade pip
-
 # Instalar herramientas necesarias para el proyecto (poetry y poethepoet)
-RUN pip3 install poetry && \
+RUN curl -sSL https://install.python-poetry.org | python3 - --version 1.1.15 && \
     poetry config virtualenvs.create false && \
-    poetry install --only-root
+    poetry install
 
 # Pasar los tests
 ENTRYPOINT ["poe", "test"]
