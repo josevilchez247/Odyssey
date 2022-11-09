@@ -9,7 +9,6 @@ Quiero crear una aplicación para ahorrar dinero cuando hacemos un viaje.
 Esta aplicación va a calcular la mejor ruta desde el origen y el destino pero teniendo en cuenta las características del vehículo dónde viajamos (gasolina/diésel, consumo, capacidad del tanque), 
 esta ruta no será la ruta más rápida hasta el objetivo si no que calculará la mejor ruta teniendo en cuenta el precio de la gasolina de las gasolineras más cercanas en el momento que el coche tenga que
 repostar.
-
 ## Instalación
 
 Para poder usar este proyecto debemos descargar sus ficheros de este repositorio previamente.
@@ -59,3 +58,5 @@ En los tests desarrollados, he seguido los pasos F.I.R.S.T.
 - Justificación del gestor de tareas y dependencias [documento](https://github.com/josevilchez247/Odyssey/blob/HidraLerna-3/docs/task_runner.md)
 
 - Justificación del test runner y la biblioteca de aserciones [documento](https://github.com/josevilchez247/Odyssey/blob/ToroCreta-4/docs/test.md)
+
+- Justificación imagen del contenedor de docker [documento](https://github.com/josevilchez247/Odyssey/blob/CiervaCerinea-5/docs/docker.md)
