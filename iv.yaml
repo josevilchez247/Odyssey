@@ -7,3 +7,4 @@ automatizar:
   
 test: 
   - test/testRutaOptima.py
+CI: .circleci/config.yml
